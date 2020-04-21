@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000
 app.use(express.static('public'))
 app.use(express.static('images'))
 
-app.get('/users/:id', function(req, res) {
+app.get('/:id', function(req, res) {
   console.log(__dirname)
   res.sendFile(__dirname + `/public/${req.params.id}.html`)
 })
