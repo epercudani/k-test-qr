@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/kinslayere/k-test-qr/issues"
   },
-  "homepage": "https://github.com/kinslayere/k-test-qr#readme"
+  "homepage": "https://github.com/kinslayere/k-test-qr#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }

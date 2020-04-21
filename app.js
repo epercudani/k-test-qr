@@ -1,16 +1,15 @@
-const fs = require('fs');
-const http = require('http');
+const fs = require('fs')
+const express = require('express')
 
-const port = process.env.PORT || 3000;
+const app = express()
+const port = process.env.PORT || 3000
 
-var content = fs.readFileSync('index.html');
+app.use(express.static('public'))
+app.use(express.static('images'))
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/html');
-  res.end(content);
-});
+app.get('/users/:id', function(req, res) {
+  console.log(__dirname)
+  res.sendFile(__dirname + `/public/${req.params.id}.html`)
+})
 
-server.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
